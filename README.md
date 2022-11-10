@@ -30,3 +30,4 @@ Note: We could choose VMware, Docker, Hyper-V, [Virtual-Box](https://www.virtual
 vagrant up
 vagrant ssh control
 ```
+[vm](./assets/vagrant_up.png)
