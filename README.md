@@ -22,5 +22,11 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 sudo apt update && sudo apt install vagrant
 ```
 
-#### Install hypervysor providers(Virtual-Box)
+#### Install hypervysor providers(Oracle Virtual-Box)
 Note: We could choose VMware, Docker, Hyper-V, [Virtual-Box](https://www.virtualbox.org/wiki/Linux_Downloads), or a custom Provider.
+
+### Start
+```
+vagrant up
+vagrant ssh control
+```
