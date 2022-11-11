@@ -31,3 +31,12 @@ vagrant up
 vagrant ssh control
 ```
 [vm](./assets/vagrant_up.png)
+
+#### Create ssh key and push out to servers
+```
+ssh vagrant@node1 #ssh should be installed by default
+ssh-keygen
+ssh-copy-id node1
+ssh-copy-id node2
+ssh-copy-id node3
+
