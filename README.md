@@ -40,3 +40,24 @@ ssh-copy-id node1
 ssh-copy-id node2
 ssh-copy-id node3
 
+# test ssh access
+ssh vagrant@node2
+```
+## Install ansible playbook 
+```
+vagrant ssh control
+sudo apt update
+sudo apt upgrade -y
+sudo apt install ansible
+cd /vagrant/ansible/
+ansible nodes -i myhost -m command -a hostname # test
+ansible nodes -i myhost -m command -a 'sudo get -y install python-simplejson'
+```
+### Run ansible playbook to install docker
+```ansible-playbook -i myhost -K playbook1.yml```
+
+### test docker is installed on node2
+```
+ssh vagrant@node2
+docker run hello-world
+```
