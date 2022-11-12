@@ -45,13 +45,19 @@ ssh vagrant@node2
 ```
 ## Install ansible playbook 
 ```
+mkdir ansible
+cd ansible
+touch myhost
+touch playbook1.yml
+# download the content of these files from the website
+
 vagrant ssh control
 sudo apt update
 sudo apt upgrade -y
 sudo apt install ansible
 cd /vagrant/ansible/
 ansible nodes -i myhost -m command -a hostname # test
-ansible nodes -i myhost -m command -a 'sudo get -y install python-simplejson'
+
 ```
 ### Run ansible playbook to install docker
 ```ansible-playbook -i myhost -K playbook1.yml```
@@ -60,4 +66,27 @@ ansible nodes -i myhost -m command -a 'sudo get -y install python-simplejson'
 ```
 ssh vagrant@node2
 docker run hello-world
+
+```
+### Run flask app using docker compose
+```
+# go back to root directory
+mkdir docker
+touch app.py && touch docker-compose.yml \
+&& touch Dockerfile && touch requirements.txt
+# download the content of these files from the website
+
+vagrant ssh control
+ssh vagrant@node2
+cd /vagrant/docker/
+docker-compose up
+
+# open a new server in a new terminal and test port 5000
+vagrant ssh control
+curl node2:500
+```
+
+### Container orchestration with docker swarn
+```
+
 ```
